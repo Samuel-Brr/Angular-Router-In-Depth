@@ -1,5 +1,5 @@
 
->>> body {
+body {
     margin: 0;
 }
 
@@ -29,7 +29,9 @@ main {
 }
 
 .menu-item.menu-item-active {
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  /* border-bottom: 1px solid white; */
+  background-color: rgba(54, 91, 161, 0.521);
 }
 
 
