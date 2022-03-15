@@ -20,7 +20,7 @@ export class LessonDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.lesson$ = this.route.snapshot.data["lesson"]
+    this.lesson$ = this.route.data.pipe(map(data => data["lesson"]))
   }
 
   previous(lesson: LessonDetail){
