@@ -13,7 +13,7 @@ export class LessonDetailComponent implements OnInit {
 
   lesson$: Observable<LessonDetail>;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private router: Router) {
 
     console.log("Created LessonDetailComponent...");
 
@@ -23,6 +23,12 @@ export class LessonDetailComponent implements OnInit {
     this.lesson$ = this.route.snapshot.data["lesson"]
   }
 
+  previous(lesson: LessonDetail){
+    this.router.navigate(['lessons', lesson.seqNo - 1], {relativeTo: this.route.parent})
+  }
 
+  next(lesson: LessonDetail){
+    this.router.navigate(['lessons', lesson.seqNo + 1], {relativeTo: this.route.parent})
+  }
 
 }
