@@ -24,6 +24,7 @@ export class CourseComponent implements OnInit {
 
       this.course = this.route.snapshot.data["course"]
 
+      this.couponCode = this.route.snapshot.queryParamMap.get("couponCode")
     }
 
     confirmExit(){

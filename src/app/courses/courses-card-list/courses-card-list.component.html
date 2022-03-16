@@ -15,7 +15,7 @@
 
     <mat-card-actions class="course-actions">
 
-        <button [routerLink]="[course.url]" mat-button class="mat-raised-button mat-primary">
+        <button [routerLink]="[course.url]" [queryParams]="{couponCode: 'NEW_YEAR'}" mat-button class="mat-raised-button mat-primary">
             VIEW COURSE
         </button>
 
