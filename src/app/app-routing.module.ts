@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule, PreloadAllModules, UrlSerializer} from '@angular/router';
+import {Routes, RouterModule, PreloadAllModules, UrlSerializer, UrlTree} from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { ChatComponent } from './chat/chat.component';
 import { LoginComponent } from './login/login.component';
@@ -45,8 +45,14 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       preloadingStrategy: CustomPreloadingStrategy,
-      enableTracing: false,
-      useHash: false
+      // enableTracing: false,
+      // useHash: false,
+      scrollPositionRestoration:'enabled',
+      paramsInheritanceStrategy: 'always',
+      relativeLinkResolution: 'corrected',
+      malformedUriErrorHandler: (error: URIError, urlSerializer: UrlSerializer, url: string) =>
+        urlSerializer.parse("/page-not-found")
+      
     })
   ],
   exports: [RouterModule],
