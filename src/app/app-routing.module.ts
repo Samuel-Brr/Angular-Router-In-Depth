@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path:"courses",
     loadChildren: () => import('./courses/courses.module').then(module => module.CoursesModule),
-    canLoad: [CanLoadAuthGuard]
+    // canLoad: [CanLoadAuthGuard]
   },
   {
     path:"login",
@@ -33,7 +33,9 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules
+    })
   ],
   exports: [RouterModule],
   providers: [
